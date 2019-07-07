@@ -1,0 +1,18 @@
+All: Parte2_Prueba
+
+Parte2_Prueba: String.o Comparable.o Entero.o main.o
+	g++ String.o Comparable.o Entero.o main.o -o Parte2_Prueba
+String.o: Comparable.h String.h String.cpp
+	g++ -c String.cpp -Wall -Werror -O1
+Comparable.o: Comparable.h Comparable.cpp
+	g++ -c Comparable.cpp -Wall -Werror -O1
+Entero.o: Comparable.h Entero.h Entero.cpp
+	g++ -c Entero.cpp -Wall -Werror -O1
+main.o: String.h Entero.h main.cpp
+	g++ -c main.cpp -Wall -Werror -O1
+	
+clean:
+	rm String.o
+	rm Comparable.o
+	rm Entero.o
+	rm main.o

@@ -1,0 +1,15 @@
+All: Strings_Prueba
+Strings_Prueba: String.o main.o
+	g++ String.o main.o -o Strings_Prueba
+String.o: String.h String.cpp
+	g++ -c String.cpp -Wall -Werror -O1
+main.o: String.h main.cpp
+	g++ -c main.cpp -Wall -Werror -O1
+	
+clean:
+	rm String.o
+	rm main.o
+	
+	
+	
+	
